@@ -9,8 +9,13 @@ import PagesToRead from "./pages/PagesToRead";
 import BookDetails from "./pages/BookDetails";
 import ReadBooks from "./components/ReadBooks";
 import WishList from "./components/WishList";
+import Error from "./pages/Error";
 
 const router = createBrowserRouter([
+  {
+    path:"*",
+    element:<Error></Error>
+  },
   {
     path: "/",
     element: <MainLayout></MainLayout>,
@@ -37,7 +42,8 @@ const router = createBrowserRouter([
           },
           {
             path:"wishlist",
-            element:<WishList></WishList>
+            element:<WishList></WishList>,
+            loader:()=>fetch('../public/books.json'),
           }
         ]
       },

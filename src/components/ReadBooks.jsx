@@ -17,7 +17,7 @@ const ReadBooks = () => {
     }, [books]); 
     return (
         <div>
-            <h2>Read book:{readbooksnumbers.length}</h2>
+            {/* <h2>Read book:{readbooksnumbers.length}</h2> */}
             {
                 readbooksnumbers.map(sbook=><ReadBookCard key={sbook.bookId} sbook={sbook}></ReadBookCard>)
             }
