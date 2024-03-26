@@ -1,5 +1,10 @@
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { savereadbooks } from "../utility/localStorage";
+
 const DetailCard = ({ book }) => {
   const {
+    bookId,
     image,
     bookName,
     review,
@@ -11,6 +16,17 @@ const DetailCard = ({ book }) => {
     rating,
     totalPages,
   } = book;
+  const id = bookId;
+
+  const handleRead = () => {
+    savereadbooks(id);
+    toast("!Successfuly added as red");
+  };
+
+  const handleWishlist = () => {
+    toast("Successfuly added to wishlist");
+  };
+
   return (
     <section className="container px-8 mx-auto dark:bg-gray-100 dark:text-gray-800">
       <div className="container flex flex-col justify-center p-6 px-10 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
@@ -26,7 +42,10 @@ const DetailCard = ({ book }) => {
             {author}
           </p>
           <hr />
-          <p className="mt-6 mb-8 text-lg sm:mb-12"><span className="font-bold">Review:</span>{review}</p>
+          <p className="mt-6 mb-8 text-lg sm:mb-12">
+            <span className="font-bold">Review:</span>
+            {review}
+          </p>
           <div className="flex justify-around py-3">
             <h2 className="font-bold">Tag</h2>
             <h2 className="text-[#23BE0A]">#{tags[0]}</h2>
@@ -51,21 +70,24 @@ const DetailCard = ({ book }) => {
           </div>
           <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
             <a
-              rel="noopener noreferrer"
-              href="#"
+              onClick={() => {
+                handleRead();
+              }}
               className="px-8 py-3 text-lg font-semibold rounded dark:bg-violet-600 dark:text-gray-50"
             >
               Read
             </a>
             <a
-              rel="noopener noreferrer"
-              href="#"
+              onClick={() => {
+                handleWishlist();
+              }}
               className="px-8 py-3 text-lg font-semibold border rounded dark:border-gray-800"
             >
               Whishlist
             </a>
           </div>
         </div>
+        <ToastContainer />
       </div>
     </section>
   );
