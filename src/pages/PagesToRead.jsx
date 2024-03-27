@@ -1,8 +1,9 @@
+import React from 'react';
 
 const PagesToRead = () => {
     return (
         <div>
-            <h2>this is pages to read page</h2>
+            <h2>hello</h2>
             
         </div>
     );
