@@ -1,6 +1,7 @@
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { savereadbooks } from "../utility/localStorage";
+import { savewishbooks } from "../utility/localstorage2";
 
 const DetailCard = ({ book }) => {
   const {
@@ -24,6 +25,7 @@ const DetailCard = ({ book }) => {
   };
 
   const handleWishlist = () => {
+    savewishbooks(id);
     toast("Successfuly added to wishlist");
   };
 

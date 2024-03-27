@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { getstorewishbooks } from "../utility/localstorage2";
-// import { getstorereadbooks } from "../utility/localStorage";
+import WishbookCard from "./WishbookCard";
 
 const WishList = () => {
     const books = useLoaderData();
@@ -14,9 +14,16 @@ const WishList = () => {
             setwishbooks(wish);
         }
     }, [books]); 
+    // console.log(wishbooks);
     return (
         <div>
-            <h2>Wishlist{wishbooks.length}</h2>
+            {
+                wishbooks.map(wbook=><WishbookCard key={wbook.bookId} wbook={wbook}></WishbookCard>)
+
+                //readbooksnumbers.map(sbook=><ReadBookCard key={sbook.bookId} sbook={sbook}></ReadBookCard>)
+
+
+            }
             
         </div>
     );

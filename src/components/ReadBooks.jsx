@@ -16,8 +16,7 @@ const ReadBooks = () => {
         }
     }, [books]); 
     return (
-        <div className="gap-7">
-            {/* <h2>Read book:{readbooksnumbers.length}</h2> */}
+        <div className="">
             {
                 readbooksnumbers.map(sbook=><ReadBookCard key={sbook.bookId} sbook={sbook}></ReadBookCard>)
             }
