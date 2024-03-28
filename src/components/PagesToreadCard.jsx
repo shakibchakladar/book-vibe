@@ -64,7 +64,6 @@ const TriangleBar = (props) => {
 };
 
 const PagesToreadCard = ({chartbooks}) => {
-    // console.log(object);
     return (
         <div>
                     <BarChart
