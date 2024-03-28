@@ -1,21 +1,36 @@
 import { useState } from "react";
-import { Link, Outlet} from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
+import { FaAngleDown } from "react-icons/fa";
+
 
 const ListedBook = () => {
-    const [tabIndex,setTAbindex]=useState(0)
+  const [tabIndex, setTAbindex] = useState(0);
   return (
     <div className="px-5 mt-5 text-center">
       <h1 className="text-center bg-[#1313130D] p-5 font-extrabold text-2xl">
         Books
       </h1>
-      <button className="my-3 text-center bg-green-400 btn">Sort by</button>
+      <details className="dropdown">
+        <summary className="bg-[#23BE0A] text-white m-1 btn">Short By <FaAngleDown /> </summary>
+        <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+          <li onClick={()=>{handlereadFilter('rating')}}>
+            <a>Rating</a>
+          </li>
+          <li>
+            <a>Number of pages</a>
+          </li>
+          <li><a href="">Publish year</a></li>
+        </ul>
+      </details>
 
       <div className="mt-5">
         <div className="flex items-center -mx-4 overflow-x-auto overflow-y-hidden sm:justify-start flex-nowrap dark:bg-gray-100 dark:text-gray-800">
           <Link
-          to=''
-          onClick={()=>setTAbindex(0)}
-          className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${tabIndex===0?'border border-b-0':'border-b'} rounded-t-lg dark:border-gray-600 dark:text-gray-900`}
+            to=""
+            onClick={() => setTAbindex(0)}
+            className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${
+              tabIndex === 0 ? "border border-b-0" : "border-b"
+            } rounded-t-lg dark:border-gray-600 dark:text-gray-900`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -32,9 +47,11 @@ const ListedBook = () => {
             <span>Read Books</span>
           </Link>
           <Link
-          to={`wishlist`}
-          onClick={()=>setTAbindex(1)}
-            className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${tabIndex===1?'border border-b-0':'border-b'} rounded-t-lg dark:border-gray-600 dark:text-gray-900`}
+            to={`wishlist`}
+            onClick={() => setTAbindex(1)}
+            className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${
+              tabIndex === 1 ? "border border-b-0" : "border-b"
+            } rounded-t-lg dark:border-gray-600 dark:text-gray-900`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

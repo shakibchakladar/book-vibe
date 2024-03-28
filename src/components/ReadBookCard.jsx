@@ -24,6 +24,7 @@ const ReadBookCard = ({sbook}) => {
           <h2>Page : {totalPages}</h2>
         </div>
         <hr />
+        <p className="text-left ">author:{author}</p>
         <div className="flex items-center gap-10 text-left">
           <h2>Category:{category}</h2>
           <h2>Rating:{rating}</h2>
